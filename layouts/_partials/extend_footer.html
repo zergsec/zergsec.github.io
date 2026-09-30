@@ -1,0 +1,25 @@
+{{- /* 首页开屏动画：只在首页且 params.intro.enabled 为 true 时输出 */ -}}
+{{- if and .IsHome (site.Params.intro.enabled) -}}
+{{- $cfg := site.Params.intro -}}
+{{- $fade := $cfg.fadeOut | default 700 -}}
+<div id="intro-screen" class="intro-screen" role="dialog" aria-label="开场"
+     data-hold="{{ $cfg.holdAfterTyping | default 900 }}"
+     data-fade="{{ $fade }}"
+     data-once-per-session="{{ $cfg.oncePerSession | default false }}">
+  <div class="intro-content">
+    {{- with $cfg.avatar }}
+    <img class="intro-avatar" src="{{ . | relURL }}" alt="头像" width="120" height="120">
+    {{- end }}
+    {{- with $cfg.name }}
+    <h1 class="intro-name">{{ . }}</h1>
+    {{- end }}
+    {{- with $cfg.message }}
+    <p class="intro-message" data-speed="{{ $cfg.typingSpeed | default 85 }}">{{ . }}</p>
+    {{- end }}
+  </div>
+  <button type="button" id="intro-skip" class="intro-skip">{{ $cfg.skipText | default "跳过" }}</button>
+</div>
+<style>#intro-screen{transition-duration:{{ $fade }}ms;}</style>
+{{- $js := resources.Get "js/intro.js" | minify | fingerprint }}
+<script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+{{- end -}}

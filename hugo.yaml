@@ -65,6 +65,19 @@ params:
   assets:
     favicon: "/favicon.ico"
 
+  # 首页开屏动画：头像弹出 → 自我介绍逐字出现 → 自动进入主页
+  # 想关掉就把 enabled 改成 false
+  intro:
+    enabled: true
+    avatar: "/images/avatar.jpg"
+    name: "zergsec"
+    message: "一名普通的pwn手"
+    typingSpeed: 85         # 每个字的间隔（毫秒），数字越小打字越快
+    holdAfterTyping: 900    # 打完字后停留多久再淡出（毫秒）
+    fadeOut: 700            # 淡出时长（毫秒）
+    oncePerSession: false   # true = 每个浏览器会话只播一次，false = 每次打开首页都播
+    skipText: "跳过"
+
   # 首页顶部那段自我介绍
   homeInfoParams:
     Title: "你好，我是 zergsec 👋"

@@ -1,0 +1,34 @@
+{{- /* 首页个性化卡片：头像 + 名字 + 签名 + 胶囊按钮 + 一段介绍，下面接文章列表 */ -}}
+{{- $p := site.Params.homeInfoParams -}}
+{{- with $p }}
+<article class="first-entry home-info custom-home-info">
+    <section class="home-profile">
+        {{- with $p.avatar }}
+        <img class="home-profile-avatar" src="{{ . | relURL }}" alt="{{ $p.Title | default "头像" }}" loading="lazy">
+        {{- end }}
+        {{- with $p.Title }}
+        <h1>{{ . | markdownify }}</h1>
+        {{- end }}
+        {{- with $p.Content }}
+        <p class="home-profile-tagline">{{ . | markdownify }}</p>
+        {{- end }}
+        {{- with $p.links }}
+        <div class="home-profile-links">
+            {{- range . }}
+            <a href="{{ .url }}"{{ if findRE "://" .url }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .name }}</a>
+            {{- end }}
+        </div>
+        {{- end }}
+    </section>
+
+    {{- with $p.about }}
+    <section class="home-about">
+        {{- with $p.aboutTitle }}<h2>{{ . }}</h2>{{- end }}
+        {{ . | markdownify }}
+        {{- with $p.quote }}
+        <p class="home-quote">{{ . | markdownify }}</p>
+        {{- end }}
+    </section>
+    {{- end }}
+</article>
+{{- end -}}

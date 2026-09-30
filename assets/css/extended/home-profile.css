@@ -1,0 +1,135 @@
+/* ===== 首页个人卡片（头像 / 名字 / 签名 / 按钮 / 介绍）===== */
+
+.custom-home-info {
+  padding: 36px 32px;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .custom-home-info {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ---- 头像区 ---- */
+
+.home-profile {
+  text-align: center;
+}
+
+.home-profile-avatar {
+  display: block;
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 18px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-profile-avatar:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.home-profile h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  line-height: 1.3;
+  color: var(--primary);
+}
+
+.home-profile-tagline {
+  margin: 10px 0 20px;
+  color: var(--secondary);
+  line-height: 1.7;
+}
+
+/* ---- 胶囊按钮 ---- */
+
+.home-profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.home-profile-links a {
+  padding: 7px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.home-profile-links a:hover {
+  transform: translateY(-2px);
+  background: var(--tertiary);
+}
+
+/* ---- 「写在前面」介绍区 ---- */
+
+.home-about {
+  margin-top: 26px;
+  padding: 24px 28px;
+  background: var(--code-bg);
+  border-left: 4px solid var(--tertiary);
+  border-radius: 0 14px 14px 0;
+}
+
+.home-about h2 {
+  margin: 0 0 14px;
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+.home-about p {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--content);
+}
+
+.home-about p:last-child {
+  margin-bottom: 0;
+}
+
+.home-about .home-quote {
+  color: var(--secondary);
+  font-style: italic;
+}
+
+/* ---- 小屏适配 ---- */
+
+@media (max-width: 480px) {
+  .custom-home-info {
+    padding: 24px 18px;
+  }
+
+  .home-profile-avatar {
+    width: 112px;
+    height: 112px;
+  }
+
+  .home-profile h1 {
+    font-size: 1.6rem;
+  }
+
+  .home-about {
+    padding: 20px 18px;
+    border-left: none;
+    border-top: 4px solid var(--tertiary);
+    border-radius: 0 0 14px 14px;
+  }
+
+  .home-about p {
+    font-size: 0.95rem;
+  }
+}

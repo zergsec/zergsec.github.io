@@ -78,11 +78,11 @@ params:
     oncePerSession: false   # true = 每个浏览器会话只播一次，false = 每次打开首页都播
     skipText: "跳过"
 
-  # 首页版式：大头像居中 + 名字 + 签名 + 按钮（类似 jixing2 的主页）
-  # 开启后首页只显示这张 profile 卡片，文章列表在「文章」页里
-  # 想换回「一段介绍 + 文章列表」的版式，把 enabled 改成 false 即可
+  # 独立的 profile 首页（大头像居中，但首页就没有文章列表了）
+  # 参考站 uaooo / jixing2 用的是「卡片 + 文章列表」版式，即下面 homeInfoParams 那种，
+  # 所以这里保持关闭
   profileMode:
-    enabled: true
+    enabled: false
     title: "zergsec"
     subtitle: "一名普通的pwn手"      # 支持 Markdown，可以写链接和强调
     imageUrl: "/images/avatar.jpg"
@@ -97,12 +97,25 @@ params:
       - name: 关于
         url: /about/
 
-  # 下面这段只在 profileMode 关闭时生效（首页顶部的一段自我介绍）
+  # 首页个人卡片：大头像 + 名字 + 签名 + 胶囊按钮 + 「写在前面」，下面紧接文章列表
+  # 版式与 uaooo / jixing2 一致（它们就是自定义了这个位置的模板）
   homeInfoParams:
-    Title: "你好，我是 zergsec 👋"
-    Content: >
-      欢迎来到我的博客。这里会放学习笔记、踩坑记录和一些折腾过程。
-      点上面的「文章」开始看，或者用「搜索」找关键词。
+    Title: "zergsec"                      # 名字（支持 Markdown）
+    Content: "一名普通的pwn手"             # 一句话签名（支持 Markdown 链接）
+    avatar: "/images/avatar.jpg"          # 头像
+    links:                                # 头像下面的胶囊按钮，想加就往下加
+      - name: GitHub
+        url: "https://github.com/zergsec"
+      - name: 查看文章
+        url: "/posts/"
+      - name: 关于我
+        url: "/about/"
+    aboutTitle: "写在前面"
+    about: |
+      欢迎来到我的博客。这里会记录逆向与 Pwn 的笔记、CTF 题解，以及折腾各种工具时踩过的坑。
+
+      水平有限，写下来的东西难免有疏漏，欢迎到 GitHub 上开 issue 指正。
+    quote: "路虽远行则将至，事虽难做则必成。"   # 想删掉这句就把整行去掉
 
   socialIcons:
     - name: github

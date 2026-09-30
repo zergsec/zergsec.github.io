@@ -1,0 +1,131 @@
+# ============================================================
+#  zergsec 的博客 —— Hugo 站点配置（PaperMod 主题）
+#  改站点地址 / 标题 / 简介，都在这个文件里改。
+# ============================================================
+
+# 站点根地址：用户站点的形式固定为 https://<GitHub 用户名>.github.io/
+# 以后改了 GitHub 用户名，把这里改成新名字，仓库也要一起改名。
+baseURL: "https://zergsec.github.io/"
+
+title: "zergsec 的博客"
+locale: "zh-CN"
+defaultContentLanguage: "zh"
+hasCJKLanguage: true
+theme: "PaperMod"
+
+# 分页：每页文章数（Hugo 0.128+ 的新写法）
+pagination:
+  pagerSize: 10
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+# 首页除了 HTML 和 RSS，还要输出 JSON 供站内搜索使用
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production
+  title: "zergsec 的博客"
+  description: "记录学习、折腾与踩坑"
+  keywords: [博客, 笔记, 折腾]
+  author: "zergsec"
+
+  DateFormat: "2006-01-02"
+  defaultTheme: auto          # auto / light / dark：默认跟随系统
+  disableThemeToggle: false   # 是否隐藏明暗切换按钮
+
+  ShowReadingTime: true       # 显示阅读时长
+  ShowWordCount: true         # 显示字数
+  ShowShareButtons: false     # 文章底部分享按钮
+  ShowPostNavLinks: true      # 上一篇 / 下一篇
+  ShowBreadCrumbs: true       # 面包屑
+  ShowCodeCopyButtons: true   # 代码块复制按钮
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true            # 用 Hugo 内置目录
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false              # 文章默认不展开目录（可在单篇文章里单独开启）
+  tocopen: false
+
+  assets:
+    favicon: "/favicon.ico"
+
+  # 首页顶部那段自我介绍
+  homeInfoParams:
+    Title: "你好，我是 zergsec 👋"
+    Content: >
+      欢迎来到我的博客。这里会放学习笔记、踩坑记录和一些折腾过程。
+      点上面的「文章」开始看，或者用「搜索」找关键词。
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/zergsec"
+    # 想加邮箱就把下面两行的注释去掉，并改成你自己的地址
+    # - name: email
+    #   url: "mailto:you@example.com"
+
+  # 文章底部「建议修改」按钮指向 GitHub 编辑页
+  editPost:
+    URL: "https://github.com/zergsec/zergsec.github.io/edit/main/content"
+    Text: "在 GitHub 上编辑"
+    appendFilePath: true
+
+  # 站内搜索参数（PaperMod 用 fuse.js 做模糊匹配）
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+  cover:
+    hiddenInList: true        # 列表页不显示封面图
+    hiddenInSingle: false     # 文章页显示封面图
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true            # 允许在 Markdown 里直接写 HTML
+  highlight:
+    noClasses: false
+    lineNos: false
+    codeFences: true
+
+menu:
+  main:
+    - identifier: posts
+      name: 文章
+      url: /posts/
+      weight: 10
+    - identifier: archives
+      name: 归档
+      url: /archives/
+      weight: 20
+    - identifier: tags
+      name: 标签
+      url: /tags/
+      weight: 30
+    - identifier: search
+      name: 搜索
+      url: /search/
+      weight: 40
+    - identifier: about
+      name: 关于
+      url: /about/
+      weight: 50

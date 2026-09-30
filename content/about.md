@@ -20,4 +20,4 @@ ShowToc: false
 
 ## 联系我
 
-有想交流的可以直接在 GitHub 上开 issue，或者通过左侧（社交图标）里的邮箱找我。
+有想交流的可以直接在 GitHub 上开 [issue](https://github.com/zergsec/zergsec.github.io/issues)。

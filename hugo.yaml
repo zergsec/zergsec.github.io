@@ -40,7 +40,6 @@ params:
   description: "记录学习、折腾与踩坑"
   keywords: [博客, 笔记, 折腾]
   author: "zergsec"
-  images: ["/images/og-cover.png"]   # 分享到微信/Twitter 等时的缩略图（1200x630）
 
   DateFormat: "2006-01-02"
   defaultTheme: auto          # auto / light / dark：默认跟随系统
@@ -120,9 +119,6 @@ params:
   socialIcons:
     - name: github
       url: "https://github.com/zergsec"
-    # 想加邮箱就把下面两行的注释去掉，并改成你自己的地址
-    # - name: email
-    #   url: "mailto:you@example.com"
 
   # 文章底部「建议修改」按钮指向 GitHub 编辑页
   editPost:

@@ -78,7 +78,26 @@ params:
     oncePerSession: false   # true = 每个浏览器会话只播一次，false = 每次打开首页都播
     skipText: "跳过"
 
-  # 首页顶部那段自我介绍
+  # 首页版式：大头像居中 + 名字 + 签名 + 按钮（类似 jixing2 的主页）
+  # 开启后首页只显示这张 profile 卡片，文章列表在「文章」页里
+  # 想换回「一段介绍 + 文章列表」的版式，把 enabled 改成 false 即可
+  profileMode:
+    enabled: true
+    title: "zergsec"
+    subtitle: "一名普通的pwn手"      # 支持 Markdown，可以写链接和强调
+    imageUrl: "/images/avatar.jpg"
+    imageWidth: 150
+    imageHeight: 150
+    imageTitle: "头像"
+    buttons:
+      - name: 文章
+        url: /posts/
+      - name: 归档
+        url: /archives/
+      - name: 关于
+        url: /about/
+
+  # 下面这段只在 profileMode 关闭时生效（首页顶部的一段自我介绍）
   homeInfoParams:
     Title: "你好，我是 zergsec 👋"
     Content: >

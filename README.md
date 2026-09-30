@@ -39,8 +39,15 @@ hugo server -D
 
 ## 写一篇新文章
 
+**最省事的方式**：双击工作区根目录（`blog` 的上一级）的 `new-post.cmd`，
+输入一个英文文件名（例如 `hdctf-2026`），它会生成模板并用编辑器打开。
+改标题、写正文、把 `draft` 改成 `false`，保存即可。
+
+也可以手动执行（在 `blog` 目录下）：
+
 ```bash
-hugo new content/posts/我的新文章.md
+# 用工作区里自带的 hugo，或 PATH 里的 hugo
+../.tools/hugo/hugo.exe new content/posts/我的新文章.md
 ```
 
 编辑生成的文件，把 `draft` 改成 `false`（草稿不会发布），然后提交：
